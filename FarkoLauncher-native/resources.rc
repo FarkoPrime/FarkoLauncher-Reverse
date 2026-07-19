@@ -1,0 +1,5 @@
+#include <windows.h>
+
+WEB_HTML   RCDATA  "web\\index.html"
+WEB_CSS    RCDATA  "web\\css\\style.css"
+WEB_JS     RCDATA  "web\\js\\app.js"

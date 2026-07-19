@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup MSVC
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Install Ninja
+      run: choco install ninja -y
+
+    - name: Configure
+      working-directory: FarkoLauncher-native
+      run: cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+    - name: Build
+      working-directory: FarkoLauncher-native
+      run: cmake --build build
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: FarkoLauncher
+        path: FarkoLauncher-native/build/FarkoLauncher.exe

@@ -1,0 +1,33 @@
+## Build output
+build/
+dist/
+publish/
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
+*.ilk
+*.exp
+
+## .NET build artifacts
+tools/NetExtractor/bin/
+tools/NetExtractor/obj/
+
+## IDE
+.vs/
+.vscode/
+*.swp
+*~
+
+## OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+## Temp
+*.tmp
+*.log
+
+## Extracted bundles
+tools/extracted_bundles/
